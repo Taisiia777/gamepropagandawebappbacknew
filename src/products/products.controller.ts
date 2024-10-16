@@ -21,4 +21,8 @@ export class ProductsController {
   async getProductById(@Param('id') id: string) {
     return this.ProductsService.getProductById(id);
   }
+  @Get('category/:category')
+  async getProductsByCategory(@Param('category') category: string) {
+    return this.productsService.getProductsByCategory(category);
+  }
 }

@@ -58,4 +58,18 @@ export class ProductsService {
       id: product.id.toString(),
     };
   }
+  // Новый метод для получения продуктов по категории
+  async getProductsByCategory(category: string) {
+    const products = await this.prisma.product.findMany({
+      where: {
+        categories: {
+          has: category, // Фильтр по массиву категорий
+        },
+      },
+    });
+    return products.map((product) => ({
+      ...product,
+      id: product.id.toString(),
+    }));
+  }
 }
