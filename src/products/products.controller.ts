@@ -1,4 +1,3 @@
-// src/products/products.controller.ts
 import { Controller, Get, Query, Param  } from '@nestjs/common';
 import { ProductsService } from './products.service';
 
@@ -23,6 +22,6 @@ export class ProductsController {
   }
   @Get('category/:category')
   async getProductsByCategory(@Param('category') category: string) {
-    return this.productsService.getProductsByCategory(category);
+    return this.ProductsService.getProductsByCategory(category);
   }
 }

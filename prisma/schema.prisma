@@ -46,7 +46,7 @@ model Product {
 model XboxWcId {
   id         Int       @id @default(autoincrement())
   wc_id      Int       @unique
-  product_id Int       @unique
+  product_id BigInt    @unique
   updated_at DateTime? @default(now()) @map("updated_at") @db.Timestamptz(6)
   product    Product   @relation(fields: [product_id], references: [id], onDelete: NoAction, onUpdate: NoAction)
 
